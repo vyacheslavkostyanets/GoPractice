@@ -1,0 +1,20 @@
+{{define "create"}} {{template "header"}}
+<main class="px-3">
+  <h1>FORM FOR ARTICLE</h1>
+  <p class="lead">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae voluptas voluptates facilis perspiciatis neque totam quos eius quaerat corporis. Quibusdam eius in, sed deserunt vitae, eum dolorem ab natus dignissimos aliquam, maiores ratione commodi dicta rerum. Accusantium accusamus quibusdam aperiam libero vero ea optio qui, esse, ratione rem deleniti perferendis et nulla amet. Cumque amet sunt ab ipsam vel! Adipisci iusto facilis veniam odit ad ex quasi voluptatibus voluptates iste deleniti, debitis facere laudantium eum eveniet dicta? Sint enim dolores velit autem repudiandae itaque, vel sunt amet vero nesciunt harum maxime officiis expedita blanditiis ad nemo quibusdam culpa quae officia?
+  </p>
+  <form action="/save_article" method="post">
+	<input type="text" name="title" id="title" placeholder="Введите название статьи" class="form-control">
+	<textarea name="anons" id="anons" class="form-control" placeholder="Введите анонс статьи статьи"></textarea>
+	<textarea name="full_text" id="anons" class="form-control" placeholder="Введите полный текст  статьи"></textarea>
+	<button class="btn btn-warning">Добавить</button>
+  </form>
+  <p class="lead">
+    <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white"
+      >Learn more</a
+    >
+  </p>
+</main>
+
+{{template "footer"}} {{end}}
