@@ -83,12 +83,20 @@ func save_article(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func show_post(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	// w.WriteHeader(http.StatusOK)
+	fmt.Fprintf(w, "ID: %v\n", vars["id"])
+}
+
 func handleFunc() {
 	rtr := mux.NewRouter()
-	http.HandleFunc("/", index)
-	http.HandleFunc("/create", create)
-	http.HandleFunc("/save_article", save_article)
+	rtr.HandleFunc("/", index).Methods("GET")
+	rtr.HandleFunc("/create", create).Methods("GET")
+	rtr.HandleFunc("/save_article", save_article).Methods("POST")
+	rtr.HandleFunc("/post/{id:[0-9]+}", show_post).Methods("GET")
 
+	http.Handle("/", rtr)
 	http.Handle("/styles/", http.StripPrefix("/styles/", http.FileServer(http.Dir("./styles/"))))
 
 	http.ListenAndServe(":8080", nil)
